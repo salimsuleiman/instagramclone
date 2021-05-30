@@ -1,0 +1,104 @@
+body {
+  background-color: #f4f4f4;
+}
+
+form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  width: 23rem;
+}
+
+i {
+  cursor: pointer;
+}
+
+.search-input {
+  background: #fafafa;
+  border: solid 1px #dbdbdb;
+  -webkit-box-pack: center;
+  justify-content: center;
+  color: #262626;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  font-size: 14px;
+  line-height: 18px;
+  border-radius: 3px;
+  color: #8e8e8e;
+  cursor: text;
+  font-size: 14px;
+  font-weight: 300;
+  padding: 7px;
+  text-align: center;
+  z-index: 2;
+}
+
+.post-icon {
+  padding-right: 8px;
+}
+
+.likes-count {
+  font-weight: 600;
+  padding: 10px 0px;
+  color: #262626;
+}
+.delete-btn {
+  text-align: right;
+}
+
+.navbar {
+  background-color: #fff;
+}
+
+.list-group-item {
+  border: none;
+  border-bottom: 1px solid rgba(20, 20, 20, 0.125);
+}
+
+.card, .post-form {
+  width: 30rem;
+}
+
+
+
+.post-author {
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.text-danger{
+  color:red;
+}
+
+.custom-file-upload {
+  border: 1px solid #333;
+  padding:10px;
+  display: inline;
+  cursor: pointer;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+
+
+@media only screen and (max-width: 492px) {
+  .card, .post-form {
+    width: 23rem;
+  }
+
+  .search-input {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .card, .post-form {
+    width: 20rem;
+  }
+
+  .search-input {
+    display: none;
+  }
+}

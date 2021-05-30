@@ -1,0 +1,72 @@
+<div class="card mb-3 mx-auto">
+    <div class="list-group-item">
+        <a class="post-author link-dark"
+            href="{{ url_for('profile_page', username=post.author.name) }}">{{ post.author.name }}</a>
+    </div>
+    {% if post.post_img.startswith('videos')  %}
+    <video class="post-video" class="card-img-top" controls="True" src="static/upload/{{post.post_img}}"></video>
+    {% else %}
+    <img class="card-img-top" src="static/upload/{{post.post_img}}" alt="" srcset="">
+    {% endif  %}
+    <div class="card-body">
+        <p class="card-text">{{ post.text }}</p>
+        <p class="text-muted small">{{ timeago.format(post.post_date.split('.')[0], datetime()) }}</p>
+
+        {% if current_user.is_authenticated %}
+        {% if current_user.already_liked(post) %}
+        <a id="animatebutton" class="animatebutton text-danger"
+            href="{{ url_for('like', user_id=current_user.id, post_id=post.id) }}"><i
+                class="fas post-icon fa-heart"></i></a>
+        {% else  %}
+        <a id="animatebutton" class="animatebutton"
+            href="{{ url_for('like', user_id=current_user.id, post_id=post.id) }}"><i
+                class="far post-icon fa-heart"></i></a>
+        {% endif  %}
+        {% endif  %}
+
+        <i class="far post-icon fa-comment"></i>
+        <i class="far post-icon fa-paper-plane"></i>
+        <p class="likes-count small">{{ post.get_liked_users()|length }} likes</p>
+
+        <!-- <div class="input-group input-group-sm mb-3">
+            <input type="text" class="form-control" placeholder="Write Comment"  aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button class="btn btn-secondary" type="button" id="button-addon1">Comment</button>
+          </div> -->
+
+        {% if current_user.is_authenticated and current_user.id == post.author_id  %}
+        <div>
+            <!-- Button trigger modal -->
+            <span type="button" class="btn btn-outline-danger btn-sm" data-bs-toggle="modal"
+                data-bs-target="#staticBackdrop">
+                <i class="fal fa-trash-alt"></i>
+            </span>
+
+
+      
+
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Are you sure to delete</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            if you delete this you're not going to see it again
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <a href="{{ url_for('delete', post_id=post.id) }}" class="btn btn-danger">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        {% endif  %}
+
+    </div>
+</div>
