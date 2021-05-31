@@ -8,7 +8,7 @@ import datetime
 from werkzeug.utils import secure_filename
 import os
 
-uri = os.environ.get("DATABASE_URL", 'sqlite:///blog.db')
+uri = os.environ.get("DATABASE_URL", 'sqlite:///database.db')
 
 if uri.startswith("postgres://"):
     uri = uri.replace("postgres://", "postgresql://", 1)
@@ -206,12 +206,12 @@ def post():
             return redirect(url_for('home_page'))
         else:
             filename = secure_filename(file.filename)
-            if file.filename.endswith('mp4'):
-                file.save(os.path.join('static/upload/videos/', filename))
-                img_url = f'videos/{filename}'
-            else:
+            if allowed_file(filename):
                 file.save(os.path.join('static/upload/images/', filename))
                 img_url = f'images/{filename}'
+            else:
+                file.save(os.path.join('static/upload/videos/', filename))
+                img_url = f'videos/{filename}'
 
             post = Post(
                 text=request.form.get('post-body'),
