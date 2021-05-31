@@ -6,11 +6,11 @@ from flask_uploads import UploadSet, configure_uploads, IMAGES
 import timeago
 import datetime
 from werkzeug.utils import secure_filename
- 
+import os
 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db/database.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'swefghjhgfdfgnhgfdsfghmhgfvb345'
 app.config['UPLOADED_PHOTOS_DEST'] = 'static/upload'

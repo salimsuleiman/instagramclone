@@ -16,6 +16,7 @@
 {% endif %}
 
 <div class="container-fluid  mt-4">
+    {% if user is not None  %}
     <div class="mb-3 mx-auto" style="width: 35rem">
         {% with messages = get_flashed_messages() %}
         {% if messages %}
@@ -31,5 +32,9 @@
     {% for post in user.posts %}
         {% include './includes/render_posts.html' %}
     {% endfor %}
+
+    {% else  %}
+        <h1>user not found</h1>
+    {% endif  %}
 </div>
 {% endblock %}
