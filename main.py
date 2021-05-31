@@ -7,20 +7,6 @@ import timeago
 import datetime
 from werkzeug.utils import secure_filename
 from random import randint
-import flask_uploads
-import flask
-import flask_sqlalchemy
-import flask_login
-import datetime
-import werkzeug
-import timeago
-import os
-import random
-import os
-
-
-print(flask.__version__, flask_sqlalchemy.__version__,
-      flask_login.__version__, werkzeug.__version__, timeago.__version__)
 
 
 app = Flask(__name__)
