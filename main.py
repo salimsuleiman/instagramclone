@@ -8,9 +8,13 @@ import datetime
 from werkzeug.utils import secure_filename
 import os
 
+uri = os.environ.get("DATABASE_URL", 'sqlite:///blog.db')
+
+if uri.startswith("postgres://"):
+    uri = uri.replace("postgres://", "postgresql://", 1)
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL", 'sqlite:///blog.db')
+app.config['SQLALCHEMY_DATABASE_URI'] = uri
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'swefghjhgfdfgnhgfdsfghmhgfvb345'
 app.config['UPLOADED_PHOTOS_DEST'] = 'static/upload'
