@@ -6,8 +6,7 @@ from flask_uploads import UploadSet, configure_uploads, IMAGES
 import timeago
 import datetime
 from werkzeug.utils import secure_filename
-from random import randint
-import flask_uploads
+ 
 
 
 app = Flask(__name__)

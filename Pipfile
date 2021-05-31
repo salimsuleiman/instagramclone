@@ -1,0 +1,23 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+click = "*"
+flask = "*"
+flask-bootstrap = "*"
+flask-ckeditor = "*"
+flask-ext = "*"
+flask-gravatar = "*"
+flask-login = "*"
+flask-sqlalchemy = "*"
+sqlalchemy = "*"
+timeago ="*"
+werkzeug = "*"
+Flask-Reuploaded="*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"
