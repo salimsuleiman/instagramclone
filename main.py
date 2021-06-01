@@ -8,8 +8,6 @@ import datetime
 from werkzeug.utils import secure_filename
 import os
 
-uri = os.environ.get("DATABASE_URL", 'sqlite:///database.db')
-
 # if uri.startswith("postgres://"):
 #     uri = uri.replace("postgres://", "postgresql://", 1)
 
