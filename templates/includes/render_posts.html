@@ -4,7 +4,7 @@
             href="{{ url_for('profile_page', username=post.author.name) }}">{{ post.author.username }}</a>
     </div>
     {% if post.post_img.startswith('videos')  %}
-    <video class="post-video" class="card-img-top" controls src="static/upload/{{post.post_img}}"></video>
+    <video class="card-img-top" class="card-img-top" controls src="static/upload/{{post.post_img}}"></video>
     {% else %}
     <img class="card-img-top" src="static/upload/{{post.post_img}}" alt="" srcset="">
     {% endif  %}
