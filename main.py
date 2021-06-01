@@ -14,12 +14,12 @@ uri = os.environ.get("DATABASE_URL", 'sqlite:///database.db')
 #     uri = uri.replace("postgres://", "postgresql://", 1)
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = uri
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'swefghjhgfdfgnhgfdsfghmhgfvb345'
 app.config['UPLOADED_PHOTOS_DEST'] = 'static/upload'
 
-ALLOWED_EXTENSIONS = set(['png', 'mp4', 'jpg', 'jpeg', 'gif'])
+ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 
 
 def allowed_file(filename):
